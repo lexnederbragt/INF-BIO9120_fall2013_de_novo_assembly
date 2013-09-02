@@ -43,10 +43,10 @@ OR (remember, the ‘~’ symbol stands for your home
 
 `	cd ~/qc_filter	`
 
-```pair_up_reads.py MiSeq_50x_R1_trimmed.fastq \
-MiSeq_50x_R2_trimmed.fastq \
-MiSeq_50x_R1_good.fastq \
-MiSeq_50x_R2_good.fastq \
+```pair_up_reads.py MiSeq_50x_R1_trimmed.fastq \ 
+MiSeq_50x_R2_trimmed.fastq \ 
+MiSeq_50x_R1_good.fastq \ 
+MiSeq_50x_R2_good.fastq \ 
 MiSeq_50x_orphans.fastq```
 
 Examine the resulting files.
