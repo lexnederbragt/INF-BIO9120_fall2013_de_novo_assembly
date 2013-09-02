@@ -4,8 +4,7 @@
 
 For this practical, in addition to the files we trimmed yesterday, we will be using the following two other files in `/data/assembly/illumina`
 
-`jump_reads_42866.A_RC.fastq`	2x93  3kb MP read1   362200 reads, 34 Mbp
-
+`jump_reads_42866.A_RC.fastq`	2x93  3kb MP read1   362200 reads, 34 Mbp  
 `jump_reads_42866.B_RC.fastq`	2x93  3kb MP read2   362200 reads, 34 Mbp
 
 These files are from a 3 kb mate pair (‘jumping’) library.
@@ -23,14 +22,13 @@ Learning points
 
 Assembling short-reads with Velvet
 
-We will now use Velvet to assemble Illumina reads on their own, a program that uses the *de Bruijn graph *approach. 
+We will now use Velvet to assemble Illumina reads on their own, a program that uses the *de Bruijn graph* approach. 
 
 We will assemble the *E. coli K12 *strain MG1655 which was sequenced on an Illumina MiSeq. The sequencing centre read 150 bases from each direction. We know from the sequencing centre that the fragment size they chose was approximately 450bp.
 
 You should have two files from yesterday’s filtering practical in your `qc_filter folder`, named 
 
-`MiSeq_50x_R1_trimmed.fastq`
-
+`MiSeq_50x_R1_trimmed.fastq`  
 `MiSeq_50x_R2_trimmed.fastq`
 
 When we filtered the data, some of the reads were removed. This means that for some pairs, either read 1 or read 2 was lost. Most programs, including velvet, require the paired reads to match up between the fastq files. We will therefore first create new fastq files with properly matched up pairs only. "Orphan" reads which have no pair will be sent to a separate file which we will not use in this practical. 
