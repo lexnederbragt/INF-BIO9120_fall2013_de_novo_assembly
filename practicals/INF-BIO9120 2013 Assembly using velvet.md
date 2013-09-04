@@ -1,15 +1,15 @@
-**Assembly using velvet**
+#Assembly using velvet
 
-**Where is what**
+##Where is what
 
 For this practical, in addition to the files we trimmed yesterday, we will be using the following two other files in `/data/assembly/illumina`
 
-`jump_reads_42866.A_RC.fastq`	2x93  3kb MP read1   362200 reads, 34 Mbp  
+`jump_reads_42866.A_RC.fastq`    2x93  3kb MP read1   362200 reads, 34 Mbp  
 `jump_reads_42866.B_RC.fastq`	2x93  3kb MP read2   362200 reads, 34 Mbp
 
 These files are from a 3 kb mate pair (‘jumping’) library.
 
-***De novo* assembly of Illumina reads using velvet**
+###*De novo* assembly of Illumina reads using velvet
 
 Learning points
 
@@ -20,7 +20,7 @@ Learning points
 * understand how to use paired-end information in Velvet
 * understand the significance of setting expected coverage values 
 
-Assembling short-reads with Velvet
+####Assembling short-reads with Velvet
 
 We will now use Velvet to assemble Illumina reads on their own, a program that uses the *de Bruijn graph* approach. 
 
@@ -35,11 +35,11 @@ When we filtered the data, some of the reads were removed. This means that for s
 
 We will use the `pair_up_reads script`:
 
-`	cd /home/yourusername/qc_filter`
+`cd /home/yourusername/qc_filter`
 
 OR (remember, the ‘~’ symbol stands for your home
 
-`	cd ~/qc_filter	`
+`cd ~/qc_filter`
 
 ```
 pair_up_reads.py MiSeq_50x_R1_trimmed.fastq \  
@@ -58,7 +58,7 @@ Are there the same number of sequences in MiSeq_50x_R1_good.fastq and MiSeq_50x_
 How many orphan sequences were produced?
 
 
-Building the Velvet Index File
+###Building the Velvet Index File
 
 Velvet requires an index file to be built before the assembly takes place. We must choose a *k-*mer value. Longer *k-*mers result in a more stringent assembly, at the expense of coverage. There is no definitive value of *k* for any given project. However, there are several absolute rules - *k* must be less than the read length and it should be an odd number. 
 
@@ -74,53 +74,41 @@ or simply type
 
 Create the assembly folder if it doesn’t already exist:
 
-`mkdir assembly`
-
-`cd assembly`
-
-`	mkdir velvet`
-
-`cd velvet`
+```
+mkdir assembly
+cd assembly
+mkdir velvet
+cd velvet
+```
 
 Find a value of *k *(between 21 and 99) to start with, and record your choice in this google spreadsheet:` bit.ly/INFBIO1`. Run `velveth` to build the hash index (see below).
 
-Program
-Options
-Explanationvelveth
+Program|Options|Explanation
+-------|-------|-------------
+velveth||Build the Velvet index file|
+|foldername|use this name for the results folder
+|value_of_k|use k-mers of this size
+|-short|short reads (as opposed to long, Sanger-like reads)
+|-separate|read1 and read2 are in separate files
+|-fastq|read type is fastq
 
-Build the Velvet index file
-foldername
-use this name for the results folder
-value_of_k
-use k-mers of this size
--short
-short reads (as opposed to long, Sanger-like reads)
--separate
-read1 and read2 are in separate files
--fastq
-read type is fastq
 
-`velveth asm_name value_of_k \`
-
-`-short -separate -fastq \`
-
-`~/qc_filter/MiSeq_50x_R1_good.fastq \`
-
+`velveth asm_name value_of_k \`  
+`-short -separate -fastq \`  
+`~/qc_filter/MiSeq_50x_R1_good.fastq \`  
 `~/qc_filter/MiSeq_50x_R2_good.fastq`
 
-After it has finished, look in **`asm_nam**e`. You should see the following files:
+After it has finished, look in the folder `asm_name`. You should see the following files:
 
-`	Log`
-
-`	Roadmaps`
-
-`	Sequences`
+`Log`  
+`Roadmaps`  
+`Sequences`
 
 `Log` is a useful file, this is a useful reminder of what commands you typed to get this assembly result, useful for reproducing results later on. Sequences contains the sequences we put in, and `Roadmaps` contains the index you just created.
 
 Now we will run the assembly with default parameters:
 
-	`velvetg asm_name`
+`velvetg asm_name`
 
 Velvet will end with a text like this:
 
@@ -130,25 +118,21 @@ The number of nodes represents the number of nodes in the graph, which (more or 
 
 Look again at asm_name, you should see the following extra files;
 
-`contigs.fa`
-
-`Graph`
-
-`LastGraph`
-
-`PreGraph`
-
+`contigs.fa`  
+`Graph`  
+`LastGraph`  
+`PreGraph`  
 `stats.txt`
 
 The important files are:
 
-	`contigs.fa` - the assembly itself
+`contigs.fa` - the assembly itself  
+`Graph` - a textual representation of the contig graph  
+`stats.txt` - a file containing statistics on each contig
 
-	`Graph` - a textual representation of the contig graph
-
-	`stats.txt` - a file containing statistics on each contig
-
-What k-mer did you use?
+Question|Your answer
+:-------|:-----------:
+What k-mer did you use?       
 What is the N50 of your assembly?
 What is the N50 of an assembly with 7 contigs of sizes: 20, 9, 9, 6, 3, 2 and 1 long?
 What is the size of the largest contig?
@@ -161,9 +145,9 @@ We will discuss the results together.
 
 **Advanced tip:** You can also use VelvetOptimiser to automate this process of selecting appropriate *k*-mer values. VelvetOptimizer is included with the Velvet installation.
 
-Now run velveth and velvetg for the kmer size determined by the whole class. Use this kmer from now on!
+Now run `velveth` and `velvetg` for the kmer size determined by the whole class. Use this kmer from now on!
 
-Estimating and setting exp_cov
+####Estimating and setting exp_cov
 
 Much better assemblies are produced if Velvet understands the expected coverage for unique regions of your genome. This allows it to try and resolve repeats. The command [velvet-estimate-exp-cov.pl](http://velvet-estimate-exp-cov.pl) is supplied with Velvet and will plot a histogram of k-mer frequency for each node in the graph, listing k-mer frequency, and the number of count of nodes with that frequency
 
@@ -177,95 +161,60 @@ Convert this value from k-mer coverage into genome coverage.
 
 The formula is:
 
-   Ck * L 
--------------  = C
+````
+   Ck * L   
+-------------  = C  
  (L - k + 1)
+````
 
 Where Ck = k-mer coverage, L = read length, k = k-mer size for your assembly
 
-
 Now run velvet again, supplying the value for exp_cov (k-mer coverage, *not* genome coverage) corresponding to your answer:
 
-	`velvetg asm_name -exp_cov peak_k_mer_coverage`
+`velvetg asm_name -exp_cov peak_k_mer_coverage`
 
 What improvements do you see in the assembly by setting a value for exp_cov? 
 
-
-
-
-Setting cov_cutoff
+####Setting cov_cutoff
 
 You can also clean up the graph by removing low-frequency nodes from the *de Bruijn* graph using the cov_cutoff parameter. This will often result in better assemblies, but setting the cut-off too high will also result in losing bases. Using the histogram from previously, estimate a good value for cov_cutoff.
 
-`	velvetg asm_name -exp_cov your_value \`
-
-`-cov_cutoff your_value`
+```
+velvetg asm_name -exp_cov your_value -cov_cutoff your_value  
+```
 
 Try some different values for cov_cutoff, keeping exp_cov the same and record your assembly results:
 
-Exp_cov
-Cov_cutoff
-N50
-Total assembly size
+|Exp_cov|Cov_cutoff|N50|Total assembly size|
+-|-------|--------------|-------------------|
+||||
+||||
+||||
+||||
 
 
+You can also ask Velvet to predict the values for you:
 
+`velvetg asm_name -exp_cov auto -cov_cutoff auto`
 
+What values of exp_cov and cov_cutoff did Velvet chose? Check the output to the screen. Is this assembly better than your best one?
 
-
-
-
-
-
-Now ask Velvet to predict the values for you:
-
-	`velvetg asm_name -exp_cov auto -cov_cutoff auto`
-
-What values of exp_cov and cov_cutoff did Velvet chose? Check the output to the screen
-Is this assembly better than your best one?
-
-
-Summarize your assemblies so far by picking a few and recording the metrics below:
-
-Exp_cov
-Cov_cutoff
-N50
-Total assembly size
-
-
-
-
-
-
-
-
-
-
-
-auto
-auto
-
-
-
-Incorporating paired-end information
+####Incorporating paired-end information
 
 Paired end information contributes additional information to the assembly, allowing contigs to be scaffolded. Velvet needs to be told to use paired-end information as follows:
 
-Now, re-index your reads telling Velvet to use paired-end information (using `-shortPaired` instead of `-short `for` velveth`) and re-run Velvet using the best value of *k, exp_cov and cov_cutoff* from the previous step.
+Now, re-index your reads telling Velvet to use paired-end information, by using `-shortPaired` instead of `-short` for `velveth`. Then, re-run velvetg using the best value of *k, exp_cov and cov_cutoff* from the previous step.
 
 ********** IMPORTANT Pick a new name for your assembly ***********
 
-`velveth asm_name2 value_of_k \`
-
-`-shortPaired -fastq -separate \`
-
-`~/qc_filter/MiSeq_50x_R1_good.fastq \`
-
-`~/qc_filter/MiSeq_50x_R2_good.fastq`
-
-`velvetg asm_name2 -exp_cov value_of_exp_cov \`
-
-`	-cov_cutoff value_of_cov_cutoff`
+```
+velveth asm_name2 value_of_k \  
+-shortPaired -fastq -separate \  
+~/qc_filter/MiSeq_50x_R1_good.fastq \  
+~/qc_filter/MiSeq_50x_R2_good.fastq  
+velvetg asm_name2 -exp_cov value_of_exp_cov \  
+-cov_cutoff value_of_cov_cutoff  
+```
 
 How does doing this affect the assembly?
 
