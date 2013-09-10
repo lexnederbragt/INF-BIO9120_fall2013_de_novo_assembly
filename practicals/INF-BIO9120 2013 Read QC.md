@@ -6,11 +6,15 @@ This is normal text
 
 For text describing a unix command, e.g. `grep` - the command will then be in italics. 
 
-`This is a command you need to enter on the command line`
+```
+This is a command you need to enter on the command line
+```
 
-`This command has one word <here> that you need to change `
+```
+This command has one word <here> that you need to change
+```
 
-For example, <here> might be the name of the folder that will contain the output of the command
+For example, \<here> might be the name of the folder that will contain the output of the command
 
 ##Working area
 
@@ -39,7 +43,7 @@ They contain 1 million randomly sampled reads from a HiSeq 2x100 bp PE (paired e
 
 Learning points:
 
-* Understand read file formats 
+* Recognizing the fastq file format
 * How to prepare and judge a QC report
 
 ####A peak into the fastq files
@@ -50,7 +54,7 @@ Fastq files are very big. In order to be able to view them in a ‘page-by-page�
 less /data/qc/cod_read1.fastq
 ```
 
-This file contains the ‘read 1’ dataset of the run for the sample. Use the space bar to browse through the file. Use ‘`q`’ to go out of the `less` program. Make sure you recognize the fastq format, if needed use the slides from today's presentation. 
+This file contains the ‘read 1’ dataset of the run for the sample. Use the space bar to browse through the file. Use `q` to go out of the `less` program. Make sure you recognize the fastq format, if needed use the slides from today's presentation. 
 
 **Question:** which of the different Illumina Sequence identifiers are used for these reads? See [http://en.wikipedia.org/wiki/FASTQ_format#Illumina_sequence_identifiers](http://en.wikipedia.org/wiki/FASTQ_format#Illumina_sequence_identifiers).
 
@@ -69,28 +73,32 @@ We will be using a program called **FastQC**. The program is available with a gr
 Program|Options|Explanation
 -------|-------|-----------
 fastqc ||Quality control of sequence data
--o foldername|tells the program to place the output in a folder called foldername instead of in the same folder as the input file
-fastq file|file to be analysed by the program
+|-o foldername|tells the program to place the output in a folder called foldername instead of in the same folder as the input file
+|fastq file|file to be analysed by the program
 
 
-Before we run the program, let’s create a new folder for the output. Do this in your home folder:
+Before we run the program, let’s create a new folder for the output. Do this in your home folder. First, go to your home directory. Remember you can simply type:
 
 ```
 cd
+```
+Now, we'll make the new folder and move into it:
+
+```
 mkdir qc
 cd qc
 pwd
 ```
 
-To run fastqc on the first MiSeq file, run the command below; *<your_username>* should be the name you used for your folder in /work. Note that the command should be written on a *single line*.
+To run fastqc on the first MiSeq file, run the command below; *<your_username>* should be the name you used for your folder. Note that the command should be written on a *single line*.
 
 ```
-fastqc -o /home/yourusername/qc /data/qc/cod_read1.fastq
+fastqc -o /home/<your_username>/qc /data/qc/cod_read1.fastq
 ```
 
 The program will tell you how far it has come, and should finish in a minute or so. Check that it finished without error messages.
 
-In the folder you specified after `-o`, you should now see a new file called `cod_read1_fastqc.zip`, and a folder by the same name. The *folder* contains the following:
+In the folder you specified after `-o`, you should now see a new folder called `cod_read1_fastqc`, and a zip-file by the same name. The *folder* contains the following:
 
 `Icons` → folder  
 `Images` → folder  
@@ -100,9 +108,10 @@ In the folder you specified after `-o`, you should now see a new file called `co
 
 Now, open a webbrowser, and, using the menu option ‘Open file’, locate the html file, choose 
 
-`yourusername → qc → cod_read1_fastqc → fastqc_report.html`
+`your_username → qc → cod_read1_fastqc → fastqc_report.html`
 
-Open the file called `fastqc_report.html`. Alternatively, you could browse the file system and double-click on the file.
+Open the file called `fastqc_report.html`.   
+Alternatively, you could browse the file system and double-click on the file.
 
 Study the results.
 
@@ -120,7 +129,7 @@ Now, answer these questions:
 * Would the run have passed the minimum requirement for Per Base Sequence Quality?
 
 
-Repeat the fastqc analysis for the file `/data/qc/cod_read1.fastq`
+Repeat the fastqc analysis for the file `/data/qc/cod_read2.fastq`, which contains the reverse read ('read2').
 
 Open the `fastqc_report.html` in your webbrowser.
 
