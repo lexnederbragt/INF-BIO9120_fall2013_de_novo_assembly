@@ -93,16 +93,18 @@ velveth||Build the Velvet index file|
 |-fastq|read type is fastq
 
 
-`velveth asm_name value_of_k \`  
-`-short -separate -fastq \`  
-`~/qc_filter/MiSeq_50x_R1_good.fastq \`  
-`~/qc_filter/MiSeq_50x_R2_good.fastq`
+```
+velveth asm_name value_of_k \  
+-short -separate -fastq \  
+~/qc_filter/MiSeq_50x_R1_good.fastq \  
+~/qc_filter/MiSeq_50x_R2_good.fastq  
+```
 
 After it has finished, look in the folder `asm_name`. You should see the following files:
 
-`Log`  
-`Roadmaps`  
-`Sequences`
+>`Log`  
+>`Roadmaps`  
+>`Sequences`  
 
 `Log` is a useful file, this is a useful reminder of what commands you typed to get this assembly result, useful for reproducing results later on. Sequences contains the sequences we put in, and `Roadmaps` contains the index you just created.
 
@@ -132,11 +134,11 @@ The important files are:
 
 Question|Your answer
 :-------|:-----------:
-What k-mer did you use?       
-What is the N50 of your assembly?
-What is the N50 of an assembly with 7 contigs of sizes: 20, 9, 9, 6, 3, 2 and 1 long?
-What is the size of the largest contig?
-How many contigs are there in the contigs.fa file? use grep -c NODE contigs.fa
+What k-mer did you use? |      
+What is the N50 of your assembly?|
+What is the N50 of an assembly with 7 contigs of sizes: 20, 9, 9, 6, 3, 2 and 1 long?|
+What is the size of the largest contig?|
+How many contigs are there in the contigs.fa file? use grep -c NODE contigs.fa|
 
 
 Log your results in this google spreadsheet:` bit.ly/INFBIO1`
@@ -149,7 +151,7 @@ Now run `velveth` and `velvetg` for the kmer size determined by the whole class.
 
 ####Estimating and setting exp_cov
 
-Much better assemblies are produced if Velvet understands the expected coverage for unique regions of your genome. This allows it to try and resolve repeats. The command [velvet-estimate-exp-cov.pl](http://velvet-estimate-exp-cov.pl) is supplied with Velvet and will plot a histogram of k-mer frequency for each node in the graph, listing k-mer frequency, and the number of count of nodes with that frequency
+Much better assemblies are produced if Velvet understands the expected coverage for unique regions of your genome. This allows it to try and resolve repeats. The command `velvet-estimate-exp-cov.pl`is supplied with Velvet and will plot a histogram of k-mer frequency for each node in the graph, listing k-mer frequency, and the number of count of nodes with that frequency
 
 `velvet-estimate-exp_cov.pl asm_name/stats.txt`
 
@@ -185,7 +187,7 @@ velvetg asm_name -exp_cov your_value -cov_cutoff your_value
 
 Try some different values for cov_cutoff, keeping exp_cov the same and record your assembly results:
 
-|Exp_cov|Cov_cutoff|N50|Total assembly size|
+Exp_cov|Cov_cutoff|N50|Total assembly size|
 -|-------|--------------|-------------------|
 ||||
 ||||
@@ -238,9 +240,10 @@ Generate assembly output
 
 When you have produced the best assembly you can, you can re-run Velvet and produce output files for viewing:
 
-`	velvetg asm_name options_you_used \`
-
-**`		-read_trkg yes -amos_file ye**s`
+```
+velvetg asm_name options_you_used \  
+-read_trkg yes -amos_file yes  
+```
 
 This will produce an AMOS-compatible .afg file which can be read in the viewer program Tablet (see the file ‘Assembly: general tools’). Start Tablet and load the afg file. Look at some of the alignments. What kind of variations (where reads diverge from the consensus) do you see most often?
 
@@ -252,19 +255,15 @@ Long-range "mate-pair" libraries can also dramatically improve an assembly by sc
 
 We will use `-shortPaired` for the paired end library reads, and `-shortPaired2` for the mate pairs:
 
-`velveth asm_name3 value_of_k \`
-
-`-shortPaired -separate -fastq \`
-
-`~/qc_filter/MiSeq_50x_R1_good.fastq \`
-
-`~/qc_filter/MiSeq_50x_R2_good.fastq \`
-
-`-shortPaired2 -separate -fastq \`
-
-`/data/assembly/illumina/jump_reads_42866.A_RC.fastq \`
-
-`/data/assembly/illumina/jump_reads_42866.B_RC.fastq`
+```
+velveth asm_name3 value_of_k \  
+-shortPaired -separate -fastq \  
+~/qc_filter/MiSeq_50x_R1_good.fastq \  
+~/qc_filter/MiSeq_50x_R2_good.fastq \  
+-shortPaired2 -separate -fastq \  
+/data/assembly/illumina/jump_reads_42866.A_RC.fastq \  
+/data/assembly/illumina/jump_reads_42866.B_RC.fastq  
+```
 
 We use auto values for velvetg because the addition of new reads will change the genome coverage:
 
