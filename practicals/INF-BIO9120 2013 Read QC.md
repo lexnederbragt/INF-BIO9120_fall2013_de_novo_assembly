@@ -147,7 +147,10 @@ fastqc -h
 
 ####More read files
 
-Now run fastqc on the other files in the `/data/qc` folder and evaluate the results. We'll discuss these together afterwards
+Now run fastqc on the other files in the `/data/qc` folder and evaluate the results. We'll discuss these together afterwards:
+
+* start with the files called `more_cod_read`. How do these compare to the cod reads you looked at before?
+* then take the ChipSeq and microRNA example read files (thye only have one fastq file each)
 
 ####Other programs to try
 
