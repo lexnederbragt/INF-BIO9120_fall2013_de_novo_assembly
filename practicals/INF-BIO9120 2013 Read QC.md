@@ -10,13 +10,15 @@ For text describing a unix command, e.g. `grep` - the command will then be in it
 
 `This command has one word <here> that you need to change `
 
-For example, this might be the name of the folder that will contain the output of the command
+For example, <here> might be the name of the folder that will contain the output of the command
 
 ##Working area
 
 The area to do your ‘work’ and save your files is here:
 
-`/home/your_username`
+```
+/home/your_username
+```
 
 ##Where is what
 
@@ -26,8 +28,10 @@ All data for this part of the practical is in this folder:
 
 You will find several fastq files in that folder. We will start the practical with these two files :
 
-`/data/qc/cod_read1.fastq`
-`/data/qc/cod_read2.fastq`
+```
+/data/qc/cod_read1.fastq  
+/data/qc/cod_read2.fastq
+```
 
 They contain 1 million randomly sampled reads from a HiSeq 2x100 bp PE (paired end) run
 
@@ -42,7 +46,9 @@ Learning points:
 
 Fastq files are very big. In order to be able to view them in a ‘page-by-page’ way, we will use the `less` command:
 
-`less /data/qc/cod_read1.fastq`
+```
+less /data/qc/cod_read1.fastq
+```
 
 This file contains the ‘read 1’ dataset of the run for the sample. Use the space bar to browse through the file. Use ‘`q`’ to go out of the `less` program. Make sure you recognize the fastq format, if needed use the slides from today's presentation. 
 
@@ -50,7 +56,9 @@ This file contains the ‘read 1’ dataset of the run for the sample. Use the s
 
 Repeat this for the read 2 file:
 
-`less /data/qc/cod_read2.fastq`
+```
+less /data/qc/cod_read2.fastq
+```
 
 **Question:** do you see whether the reads in the same order in both files?
 
@@ -76,7 +84,9 @@ pwd
 
 To run fastqc on the first MiSeq file, run the command below; *<your_username>* should be the name you used for your folder in /work. Note that the command should be written on a *single line*.
 
-`fastqc -o /home/yourusername/qc /data/qc/cod_read1.fastq`
+```
+fastqc -o /home/yourusername/qc /data/qc/cod_read1.fastq
+```
 
 The program will tell you how far it has come, and should finish in a minute or so. Check that it finished without error messages.
 
@@ -122,8 +132,14 @@ Open the `fastqc_report.html` in your webbrowser.
 
 NB. You can get more information about the use of the fastqc program by writing
 
-`fastqc -h`
+```
+fastqc -h
+```
 
 ####More read files
 
 Now run fastqc on the other files in the `/data/qc` folder and evaluate the results. We'll discuss these together afterwards
+
+####Other programs to try
+
+You could try the online QC program PRINSEQ on these datasets: [http://edwards.sdsu.edu/prinseq/](http://edwards.sdsu.edu/cgi-bin/prinseq/) 
