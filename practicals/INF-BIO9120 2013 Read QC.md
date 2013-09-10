@@ -54,7 +54,7 @@ Fastq files are very big. In order to be able to view them in a ‘page-by-page�
 less /data/qc/cod_read1.fastq
 ```
 
-This file contains the ‘read 1’ dataset of the run for the sample. Use the space bar to browse through the file. Use `q` to go out of the `less` program. Make sure you recognize the fastq format, if needed use the slides from today's presentation. 
+This file contains the forward read (‘read 1’)  dataset of the run for the sample. Use the space bar to browse through the file. Use `q` to go out of the `less` program. Make sure you recognize the fastq format, if needed use the slides from today's presentation. 
 
 **Question:** which of the different Illumina Sequence identifiers are used for these reads? See [http://en.wikipedia.org/wiki/FASTQ_format#Illumina_sequence_identifiers](http://en.wikipedia.org/wiki/FASTQ_format#Illumina_sequence_identifiers).
 
@@ -73,8 +73,8 @@ We will be using a program called **FastQC**. The program is available with a gr
 Program|Options|Explanation
 -------|-------|-----------
 fastqc ||Quality control of sequence data
-|-o foldername|tells the program to place the output in a folder called foldername instead of in the same folder as the input file
-|fastq file|file to be analysed by the program
+.|-o foldername|tells the program to place the output in a folder called foldername instead of in the same folder as the input file
+.|fastq file|file to be analysed by the program
 
 
 Before we run the program, let’s create a new folder for the output. Do this in your home folder. First, go to your home directory. Remember you can simply type:
@@ -90,7 +90,7 @@ cd qc
 pwd
 ```
 
-To run fastqc on the first MiSeq file, run the command below; *<your_username>* should be the name you used for your folder. Note that the command should be written on a *single line*.
+To run fastqc on the first MiSeq file, run the command below; *<your_username>* should be the name you used for your folder. Note that the command should be written on a *single line*. Also note where you should put spaces!
 
 ```
 fastqc -o /home/<your_username>/qc /data/qc/cod_read1.fastq
@@ -149,7 +149,7 @@ fastqc -h
 
 Now run fastqc on the other files in the `/data/qc` folder and evaluate the results. We'll discuss these together afterwards:
 
-* start with the files called `more_cod_read`. How do these compare to the cod reads you looked at before?
+* start with the files called `more_cod_read*`. How do these compare to the cod reads you looked at before?
 * then take the ChipSeq and microRNA example read files (thye only have one fastq file each)
 
 ####Other programs to try
