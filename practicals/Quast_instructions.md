@@ -27,7 +27,7 @@ quast.py -t 2 \
 -o out_folder_name \
 ../path/to/scaffolds1.fasta \
 ../path/to/scaffolds2.fasta \
--l "Assembly 1","Assembly 2"
+-l "Assembly 1, Assembly 2"
 ```
 
 ####Using Quast *with* a reference genome
@@ -40,8 +40,5 @@ quast.py -t 2 \
 -G /data/assembly/ref/e.coli_genes.gff \
 ../path/to/scaffolds1.fasta \
 ../path/to/scaffolds2.fasta \
--l "Assembly 1","Assembly 2"
+-l "Assembly 1, Assembly 2"
 ```
-
-
-
