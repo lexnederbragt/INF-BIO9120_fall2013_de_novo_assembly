@@ -297,24 +297,7 @@ velveth <asm_name3> value_of_k \
 /data/assembly/Nextera_MP_R2_50x.fastq  
 ```
 
-We use auto values for velvetg because the addition of new reads will change the genome coverage:
-
-```
-velvetg <asm_name3> -cov_cutoff auto -exp_cov auto
-```
-
-**Questions:**
-
-* What is the N50 of this assembly?
-* How many scaffolds?
-* How many bases are in gaps?
-* What did velvet estimate for the insert length of the paired-end reads, and for the standard deviation? Use the last mention of this in the velvet output.
-* And for the mate-pair library?
-
-
-Make a copy of the contigs file and call it `velvet_pe+MP.fa`
-
-Mate-pair data can contain significant paired-end contamination which generates misassemblies. To account for this, let Velvet know about the problem with the following flag:
+We use auto values for velvetg because the addition of new reads will change the genome coverage. Also, Mate-pair data can contain significant paired-end contamination which generates misassemblies. To account for this, let Velvet know about the problem with the `shortMatePaired2` flag. The assembly command then becomes:
 
 ```
 velvetg <asm_name3> -cov_cutoff auto \  
@@ -326,9 +309,11 @@ velvetg <asm_name3> -cov_cutoff auto \
 * What is the N50 of this assembly?
 * How many scaffolds?
 * How many bases are in gaps?
+* What did velvet estimate for the insert length of the paired-end reads, and for the standard deviation? Use the last mention of this in the velvet output.
+* And for the mate-pair library?
 
-Make a copy of the contigs file and call it `velvet_pe+mp2`
 
+Make a copy of the contigs file and call it `velvet_pe+mp.fa`
 
 ####Skipping the paired end reads
 As both the mate pairs and the paired end *reads* are of the same length, and provide the same coverage, it could be intersting to try an assembly of the mate pair reads only. The read sequences would still be used to build the contigs, and the mate pair information to build scaffolds.
