@@ -1,5 +1,7 @@
 #Read QC and trimming
 
+Course material for the INF-BIO9120 'High Throughput Sequencing technologies and bioinformatics analysis ' course at the University of Oslo, Fall 2013
+
 ##Conventions in this document
 
 This is normal text
