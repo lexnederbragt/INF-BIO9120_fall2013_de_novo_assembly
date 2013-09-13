@@ -1,4 +1,4 @@
-#Assembly: read QC and trimming
+#Read QC and trimming
 
 ##Conventions in this document
 
@@ -117,14 +117,14 @@ Study the results.
 
 The plot called "Per base sequence quality" shows an overview of the range of quality scores across all based at each position in the fastq file. The y-axis shows quality scores and the x-axis shows the read position. For each read position, a boxplot is used to show the distribution of quality scores for all reads. The yellow boxes represent quality scores within the inter-quartile range (25% - 75%). The upper and lower whiskers represent 10% and 90% point. The central red line shows the median of the quality values and the blue line shows the mean of the quality values.
 
-A rule of thumb is that a quality score of 30 indicates a 1 in 1000 probability of error and a quality score of 20 indicates a 1 in 100 probability of error (see the wikipedia page on the fastq format at http://en.wikipedia.org/wiki/Fastq). The higher the score the better the base call. You will see from the plots that the quality of the base calling deteriorates along the read (as is always the case with Illumina sequencing). Sometimes, a minimum requirement for Per Base Sequence Quality is that the first 36 bases should have a median and mean quality score over 20.
+A rule of thumb is that a quality score of 30 indicates a 1 in 1000 probability of error and a quality score of 20 indicates a 1 in 100 probability of error (see the wikipedia page on the fastq format at [http://en.wikipedia.org/wiki/Fastq](http://en.wikipedia.org/wiki/Fastq). The higher the score the better the base call. You will see from the plots that the quality of the base calling deteriorates along the read (as is always the case with Illumina sequencing). Sometimes, a minimum requirement for Per Base Sequence Quality is that the first 36 bases should have a median and mean quality score over 20.
 
 Now, answer these questions:
 
 **Questions**
 
-* How many reads were there in total in the cod_read1.fastq file?
-* How many bases were there in total in the file (trick question.)?
+* How many reads were there in total in the `cod_read1.fastq` file?
+* How many bases were there in total in the file?
 * Which part(s) of the reads would you say are of low quality - if any?
 * Would the run have passed the minimum requirement for Per Base Sequence Quality?
 
