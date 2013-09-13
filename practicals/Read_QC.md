@@ -6,7 +6,7 @@ Course material for the INF-BIO9120 'High Throughput Sequencing technologies and
 
 This is normal text
 
-For text describing a unix command, e.g. `grep` - the command will then be in italics. 
+For text describing a unix command, e.g. `grep` - the command will then be look like this: 
 
 ```
 This is a command you need to enter on the command line
