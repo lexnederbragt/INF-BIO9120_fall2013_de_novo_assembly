@@ -8,10 +8,10 @@ Quast||Evaluating genome assemblies
 |-o|name of output folder
 |-R|Reference genome
 |-G|File with positions of genes in the reference (see manual)
-|-t|number of threads (cpu's) to use
+|-T|number of threads (cpu's) to use
 |sequences.fasta|one or more files with assembled sequences
 |-l| comma-separates list of names for the assemblies, e.g. "assembly 1", "assembly 2" (in the same order as the sequence files)
-|--scaffolds|input sequences are scaffolds, not contigs. They will be split at 10 N's or more to analyse contigs
+|--scaffolds|input sequences are scaffolds, not contigs. They will be split at 10 N's or more to analyse contigs ('broken' assembly)
 |--est-ref-size| estimated reference genome size (when not provided)
 
 See the manual for information on the output of Quast:
