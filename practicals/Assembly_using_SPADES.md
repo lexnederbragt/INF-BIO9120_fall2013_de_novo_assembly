@@ -1,6 +1,6 @@
 #Assembly using SPADES
 
-Spades: [http://bioinf.spbau.ru/spades](http://bioinf.spbau.ru/spades)
+Spades: [http://bioinf.spbau.ru/spades](http://bioinf.spbau.ru/spades)  
 Manual: [http://spades.bioinf.spbau.ru/release2.5.1/manual.html](http://spades.bioinf.spbau.ru/release2.5.1/manual.html)
 
 Spades was written as an assembly program for bacterial genomes, from regular, as well as from whole-genome amplified samples. It performed very well in the GAGE-B competition, see [http://ccb.jhu.edu/gage_b/](http://ccb.jhu.edu/gage_b/).
@@ -32,7 +32,6 @@ spades.py -t 2 -k 21,33,55,77 --careful \
 
 Add the paired ends as above, and use `--mp-1-1` and `--mp1-2` for the mate pair files. Spades assumes mate pairs are in the orientation as they are in the original files coming from the Illumina instrument: <-- and --> ('outie' orientation, or 'rf' for reverse-forward). Our reads are in the --> and <-- ('innie', 'fr' for forward-reverse) orientation, so we add the `--mp1-fr` flag to let SPADES know about this:
 
-
 ```
 spades.py -t 2 -k 21,33,55,77 --careful \
 --pe1-1 /data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq \
@@ -60,4 +59,4 @@ Changes to the command line when using error-corrected reads:
 * add the `--only-assembler`flag to skip correction
 
 
-**Bonus exercise**: map the error-corrected paired end reads to the same assembly as the uncorrected reads (calling SNPs and indels), and check the results in the genome browser
+**Bonus exercise**: map the error-corrected paired end reads to the same assembly as the uncorrected reads (calling SNPs and indels), and check the results in the genome browser.
