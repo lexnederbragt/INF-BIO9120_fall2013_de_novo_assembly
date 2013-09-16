@@ -137,7 +137,7 @@ Open the `fastqc_report.html` in your webbrowser.
 
 **Questions**
 
-* Are there part(s) of the reads that have a lower quality compared to the MiSeq_50x_R1.fastq file?
+* Are there part(s) of the reads that have a lower quality compared to the cod_read1.fastq file?
 * Would the run have passed the minimum requirement for Per Base Sequence Quality?
 
 
