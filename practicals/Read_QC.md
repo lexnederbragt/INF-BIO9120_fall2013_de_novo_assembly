@@ -92,7 +92,7 @@ cd qc
 pwd
 ```
 
-To run fastqc on the first MiSeq file, run the command below; *<your_username>* should be the name you used for your folder. Note that the command should be written on a *single line*. Also note where you should put spaces!
+To run fastqc on the first file, run the command below; *<your_username>* should be the name you used for your folder. Note that the command should be written on a *single line*. Also note where you should put spaces!
 
 ```
 fastqc -o /home/<your_username>/qc /data/qc/cod_read1.fastq
