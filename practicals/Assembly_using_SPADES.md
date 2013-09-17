@@ -1,8 +1,5 @@
 #Assembly using SPADES
 
-Spades: [http://bioinf.spbau.ru/spades](http://bioinf.spbau.ru/spades)  
-Manual: [http://spades.bioinf.spbau.ru/release2.5.1/manual.html](http://spades.bioinf.spbau.ru/release2.5.1/manual.html)
-
 Spades was written as an assembly program for bacterial genomes, from regular, as well as from whole-genome amplified samples. It performed very well in the GAGE-B competition, see [http://ccb.jhu.edu/gage_b/](http://ccb.jhu.edu/gage_b/).
 
 Before assembly, SPADES will error-correct the reads.
@@ -11,17 +8,17 @@ NOTE that SPADES is not optimised for scaffolding using mate pairs.
 
 ###Using SPADES
 
-Spades can be used with paired end data only, or with paired end and mate pair data. The `--careful`flag is used to reduce the number of mismatches and short indels. For each read file, a flag is used to indicate whether it is from a paired end (`--pe`) or mate (`--mp`) pair dataset, followed by a number for the dataset, and a number for read1 or read2, for example: `--pe1-1` and `--pe1-2`.  
+Spades can be used with paired end data only, or with paired end and mate pair data. The `--careful` flag is used to reduce the number of mismatches and short indels. For each read file, a flag is used to indicate whether it is from a paired end (`--pe`) or mate (`--mp`) pair dataset, followed by a number for the dataset, and a number for read1 or read2. For example: `--pe1-1` and `--pe1-2` indicate pared end data set 1, read1 and read2, respectively.  
 Other parameters:
 
-* `-t` number of threads to use for calculations
-* `-k` k-mers to use (room for experimenting!)
+* `-t` number of threads (CPUs) to use for calculations
+* `-k` k-mers to use (this gives room for experimenting!)
 * `-o` name of the output folder
 
 ####Paired end reads only
 
-First, create a new folder called `/home/<your_username>/assembly/spades` and `cd`into it.
-The, run SPADES:
+First, create a new folder called `/home/<your_username>/assembly/spades` and `cd` into it.
+Then, run SPADES:
 
 ```
 spades.py -t 2 -k 21,33,55,77 --careful \
@@ -62,4 +59,14 @@ Changes to the command line when using error-corrected reads:
 * add the `--only-assembler`flag to skip correction
 
 
-**Bonus exercise**: map the error-corrected paired end reads to the same assembly as the uncorrected reads (calling SNPs and indels), and check the results in the genome browser.
+####Things to try
+* Leaving out the mate pairs
+* Different combinations of k
+* Mapping back reads, calling SNPs and INDELs and visualising
+
+**Questions:**
+
+* How do the assemblies compare to the velvet assemblies using the (exact) same input data
+* Which assembler is 'best' for this data - or can't you tell?
+
+**Bonus exercise**: map the *error-corrected* paired end reads to the same assembly as the uncorrected reads, and check the results in the genome browser.
