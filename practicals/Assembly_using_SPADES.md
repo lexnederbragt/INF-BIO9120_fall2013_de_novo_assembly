@@ -20,6 +20,9 @@ Other parameters:
 
 ####Paired end reads only
 
+First, create a new folder called `/home/<your_username>/assembly/spades` and `cd`into it.
+The, run SPADES:
+
 ```
 spades.py -t 2 -k 21,33,55,77 --careful \
 --pe1-1 /data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq \

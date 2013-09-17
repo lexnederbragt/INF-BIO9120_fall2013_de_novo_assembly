@@ -65,6 +65,7 @@ velveth||Build the Velvet index file|
 |-separate|read1 and read2 are in separate files
 |-fastq|read type is fastq
 
+Build the index as follows:
 
 ```
 velveth <asm_name> <value_of_k> \  
@@ -72,8 +73,12 @@ velveth <asm_name> <value_of_k> \
 /data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq \  
 /data/assembly/MiSeq_Ecoli_MG1655_50x_R2.fastq  
 ```
+**NOTES** 
 
-After it has finished, look in the folder `asm_name`. You should see the following files:
+* Change `<asm_name>` to something else of your chosing, and remove the `<`and `>`characters!
+* The command is split over several lines by adding a space, and a `\` (backslash) to each line. This trick makes long commands more readable. If you want, you can write the whole command on one line instead.
+
+After `velveth` is finished, look in the new folder that has the name you chose. You should see the following files:
 
 >`Log`  
 >`Roadmaps`  
