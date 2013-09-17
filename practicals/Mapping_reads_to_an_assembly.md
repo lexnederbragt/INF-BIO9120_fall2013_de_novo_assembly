@@ -120,10 +120,12 @@ Adding tracks to the browser is as simple as uploading a new file:
 * Choose the sorted BAM file of the paired end mapping 
 * Repeat this for the BAM file of the mate pair mapping 
 * Start browsing!
+* Remember you can choose different sequences (contigs/scaffolds) from the drop-down menu at the top. Start browsing (one of) the longest scaffold(s)
 
 **Question:**
 
-* Do you see errors in some of the reads relative to the reference? What kind of errors?
+* Do you see differences between some of the reads relative to the reference? What are these?
+* Is coverage even? Are there gaps in the coverage, or peaks? Where?
 
 ####Adding the locations of gaps as another track
 It would be convenient to be able to see the location of gaps in the browser. For this purpose run the following command (e.g., in the folder with the `bwa` results):
