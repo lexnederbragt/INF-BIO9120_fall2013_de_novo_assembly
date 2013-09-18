@@ -1,31 +1,6 @@
 #Mapping reads to an assembly and visualising the results
 
-We will use `bwa` for mapping. this is the same program you used for the variant calling module. However, we will use a different version of `bwa`, one that is faster and more accurate with reads longer than 100bp.
-
-####Set up bwa
-
-We need to tell your shell to use the correct version of `bwa`. Try out which version you currently use as default by typing:
-
-```
-which bwa
-```
-
-The `which`command gives the real path to the commandname you give it. You should see `/site/infbio9120/bin/bwa`, which is where `bwa` resides.
-
-To change to the newer version of `bwa`, type:
-
-```
-export PATH=/site/infbio9120/bin/FIXME:$PATH
-```
-
-**NOTES**
-
-* no spaces except for between `export` and `PATH`
-* note the dollar sign `$` before the second `PATH`
-
-Retry the `which`command and note the change.
-
-Typing just `bwa` on the command-line should now give you a lot of help text, with the version number including `0.7.5a`.
+We will use `bwa` for mapping. this is the same program you used for the variant calling module. However, we will use a different version of `bwa`, one that is faster and more accurate with reads longer than 100bp. So instead of `bwa` we will use `bwa-0.7.5a`
 
 ####Indexing the assembly
 
@@ -35,7 +10,7 @@ Move (using `cd`) to the folder with your final assembled sequenced, e.g. `conti
 Index the fasta file with:
 
 ```
-bwa index -a bwtsw <assembly.fasta>
+bwa-0.7.5a index -a bwtsw <assembly.fasta>
 ```
 
 Replace `<assembly.fasta>` with the name of your fasta file. Run `ls` to check the results, you should see a bunch of new files.
@@ -43,7 +18,7 @@ Replace `<assembly.fasta>` with the name of your fasta file. Run `ls` to check t
 
 ####Mapping paired end reads
 
-Mapping the reads using `bwa mem` yields SAM output. Instead of saving this output to disk, we will immediately convert it to a sorted BAM file by piping into the `samtools`program. 'Sorted' here means that the alignments of the mapped reads are in the order of the reference sequences, rather than random. Finally, we will generate an index of the sorted BAM file for faster searching later on.
+Mapping the reads using `bwa-0.7.5a mem` yields SAM output. Instead of saving this output to disk, we will immediately convert it to a sorted BAM file by piping into the `samtools`program. 'Sorted' here means that the alignments of the mapped reads are in the order of the reference sequences, rather than random. Finally, we will generate an index of the sorted BAM file for faster searching later on.
 
 First, create a new folder and `cd` into it:
 
@@ -54,7 +29,7 @@ cd bwa
 Then do the mapping:
 
 ```
-bwa mem -t 2 ../<assembly.fasta> \
+bwa-0.7.5a mem -t 2 ../<assembly.fasta> \
 /data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq \
 /data/assembly/MiSeq_Ecoli_MG1655_50x_R2.fastq \
 | samtools view -buS - | samtools sort - map_pe.sorted
@@ -69,7 +44,7 @@ samtools index map_pe.sorted.bam
 Explanation of some of the parameters:
 
 * `../` means 'look in the folder one level up', i.e. where the fasta file is
-* `-t 2`tells `bwa mem` to use 2 threads (cpus)
+* `-t 2`tells `bwa-0.7.5a mem` to use 2 threads (cpus)
 * `-buS`tells `samtools view` that the input is in SAM format (`S`) and to output uncompressed (`u`) BAM format (`b`).
 * the `-` for both `samtools` commands indicate that instead of using a file as input, the input comes from a pipe (technically, from 'standard in', or 'STDIN').
 * `-map_pe.sorted` tells `samtools view` to call the outputfile `map_pe.sorted.bam`
@@ -81,7 +56,7 @@ samtools view map_pe.sorted.bam |less
 ```
 
 ####Mapping mate pairs
-Repeat the `bwa mem` and `samtools` commands above, but:
+Repeat the `bwa-0.7.5a mem` and `samtools` commands above, but:
 
 * use the mate pair reads `Nextera_MP_R1_50x.fastq` and `Nextera_MP_R2_50x.fastq`
 * change the output name to `map_mp.sorted`
