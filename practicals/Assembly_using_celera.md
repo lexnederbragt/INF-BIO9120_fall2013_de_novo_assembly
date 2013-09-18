@@ -21,13 +21,13 @@ To prepare the Illumina paired end and mate pair reads, the commands are:
 
 ```
 fastqToCA -insertsize 300 30 \
--libraryname ecoli_frag -technology illumina -type sanger -mates \
-/data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq,/data/assembly/MiSeq_Ecoli_MG1655_50x_R2.fastq \
+-libraryname ecoli_frag -technology illumina -type sanger \
+-mates /data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq,/data/assembly/MiSeq_Ecoli_MG1655_50x_R2.fastq \
 > ecoli_frag.frg
 
 fastqToCA -insertsize 3000 600 -libraryname ecoli_jump \
--technology illumina -type sanger -mates \
-/data/assembly/Nextera_MP_R1_50x.fastq,/data/assembly/Nextera_MP_R2_50x.fastq \
+-technology illumina -type sanger\
+-mates /data/assembly/Nextera_MP_R1_50x.fastq,/data/assembly/Nextera_MP_R2_50x.fastq \
 >ecoli_jump.frg
 ```
 
@@ -67,7 +67,10 @@ As with the illumina data (see above) we will use fastqToCA. `-technology` is se
 
 
 ```
-fastqToCA -technology sanger -type sanger -reads /data/assembly/PB_corrected.fastq -libraryname pacbioReads >PB_corrected.frg
+fastqToCA -libraryname pacbioReads \
+-technology sanger -type sanger \
+-reads /data/assembly/PB_corrected.fastq \
+ >PB_corrected.frg
 ```
 
 ####Assembly
@@ -82,11 +85,13 @@ cp /data/assembly/celera_pb.spec .
 
 **NOTE** the `.` at the end of the command, this indicates 'the current directory'.
 
+Feel free to have a look at this file.
+
 Now we are ready to run celera.  
 **NOTE** the assembly will take many hours, so use the `screen` command! See [https://wiki.uio.no/projects/clsi/index.php/Tip:using_screen](https://wiki.uio.no/projects/clsi/index.php/Tip:using_screen)
 
 ```
-runCA -p <asm_name> -d <folder_name> -s celera_pb.spec PB_corrected.frg
+runCA -p <asm_name> -d <folder_name> -s celera_pb.spec PB_corrected.frg >runCA.out 2>&1
 ```
 
 ###Celera output
