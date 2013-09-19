@@ -8,14 +8,20 @@ NOTE that SPADES is not optimised for scaffolding using mate pairs.
 
 ###Using SPADES
 
-Spades can be used with paired end data only, or with paired end and mate pair data. The `--careful` flag is used to reduce the number of mismatches and short indels. For each read file, a flag is used to indicate whether it is from a paired end (`--pe`) or mate (`--mp`) pair dataset, followed by a number for the dataset, and a number for read1 or read2. For example: `--pe1-1` and `--pe1-2` indicate pared end data set 1, read1 and read2, respectively.  
+Spades can be used with paired end and mate pair data:
+
+* The `--careful` flag is used to reduce the number of mismatches and short indels. 
+* For each read file, a flag is used to indicate whether it is from a paired end (`--pe`) or mate (`--mp`) pair dataset, followed by a number for the dataset, and a number for read1 or read2. For example: `--pe1-1` and `--pe1-2` indicate pared end data set 1, read1 and read2, respectively.
+* Similarly, use `--mp-1-1` and `--mp1-2` for the mate pair files. 
+* Spades assumes mate pairs are in the orientation as they are in the original files coming from the Illumina instrument: <-- and --> ('outie' orientation, or 'rf' for reverse-forward). Our reads are in the --> and <-- ('innie', 'fr' for forward-reverse) orientation, so we add the `--mp1-fr` flag to let SPADES know about this
+  
 Other parameters:
 
 * `-t` number of threads (CPUs) to use for calculations
 * `-k` k-mers to use (this gives room for experimenting!)
 * `-o` name of the output folder
 
-####Paired end reads only
+####Setting up the assembly
 
 First, create a new folder called `/home/<your_username>/assembly/spades` and `cd` into it.  
 We will save the output from the command using `>spades.out` in a file to be able to follow progress. `2>&1` makes sure any error-messages are written to the same file.
@@ -27,23 +33,16 @@ Run the assembly as follows:
 spades.py -t 2 -k 21,33,55,77 --careful \
 --pe1-1 /data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq \
 --pe1-2 /data/assembly/MiSeq_Ecoli_MG1655_50x_R2.fastq \
--o <asm_name> >spades.out 2>&1
-
-```
-
-####Paired end and mate pairs
-
-Add the paired ends as above, and use `--mp-1-1` and `--mp1-2` for the mate pair files. Spades assumes mate pairs are in the orientation as they are in the original files coming from the Illumina instrument: <-- and --> ('outie' orientation, or 'rf' for reverse-forward). Our reads are in the --> and <-- ('innie', 'fr' for forward-reverse) orientation, so we add the `--mp1-fr` flag to let SPADES know about this:
-
-```
-spades.py -t 2 -k 21,33,55,77 --careful \
---pe1-1 /data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq \
---pe1-2 /data/assembly/MiSeq_Ecoli_MG1655_50x_R2.fastq \
 --mp1-1 /data/assembly/Nextera_MP_R1_50x.fastq \
 --mp1-2 /data/assembly/Nextera_MP_R2_50x.fastq \
---mp1-fr -o <asm_name2> >spades2.out 2>&1
+--mp1-fr -o <asm_name> >spades.out 2>&1
 ```
 
+If the assembly is running in a 'screen', you can follow the output by checking the `spades.out` file. **TIP**: use this command to track the outout as it is added to the file. Use ctrl-c to cancel.
+
+```
+tail -f spades.out
+```
 
 ####SPADES output
 * error-corrected reads
@@ -62,14 +61,9 @@ Changes to the command line when using error-corrected reads:
 * add the `--only-assembler` flag to skip correction
 
 
-####Things to try
-* Leaving out the mate pairs
-* Different combinations of k
-* Mapping back reads, calling SNPs and INDELs and visualising
-
 **Questions:**
 
-* How do the assemblies compare to the velvet assemblies using the (exact) same input data
+* How does the assembly compare to the velvet assemblies using the (exact) same input data
 * Which assembler is 'best' for this data - or can't you tell?
 
 **Bonus exercise**: map the *error-corrected* paired end reads to the same assembly as the uncorrected reads, and check the results in the genome browser.
