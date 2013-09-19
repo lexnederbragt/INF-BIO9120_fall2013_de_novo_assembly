@@ -13,6 +13,7 @@ Quast||Evaluating genome assemblies
 |-l| comma-separates list of names for the assemblies, e.g. "assembly 1", "assembly 2" (in the same order as the sequence files)
 |--scaffolds|input sequences are scaffolds, not contigs. They will be split at 10 N's or more to analyse contigs ('broken' assembly)
 |--est-ref-size| estimated reference genome size (when not provided)
+|--gene-finding| apply GenemarkS for gene finding
 
 See the manual for information on the output of Quast:
 [http://quast.bioinf.spbau.ru/manual.html#sec3](http://quast.bioinf.spbau.ru/manual.html#sec3)
@@ -20,6 +21,7 @@ See the manual for information on the output of Quast:
 **NOTE** Quast will produce a html report file `report.html` that you can open in your browser.
 
 ####Using Quast *without* a reference genome
+Note that the `--scaffold` option is not used here for simplification
 
 ```
 quast.py -T 2 \
@@ -31,7 +33,9 @@ quast.py -T 2 \
 -l "Assembly 1, Assembly 2"
 ```
 
-####Using Quast *with* a reference genome
+An additional advantage of adding the `--gene-finding` flag is that Quast will provide a `gff` file with the predicted genes. This file can be added to your genome browser session as aseparate track.
+
+####Using Quast *with* the reference genome
 
 ```
 quast.py -T 2 \
