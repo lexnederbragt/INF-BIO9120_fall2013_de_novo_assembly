@@ -99,8 +99,4 @@ Celera generates a lot of files and folders, more than 20 GB for the illumina as
 
 * `<asm_name>.scf.fasta` --> scaffold sequences
 * `<asm_name>.ctg.fasta` --> contig sequences
-* many other files, see the manual
-
-
-----
-Course material for the INF-BIO9120 'High Throughput Sequencing technologies and bioinformatics analysis ' course at the University of Oslo, Fall 2013. See [https://github.com/lexnederbragt/INF-BIO9120_fall2013_de_novo_assembly/](https://github.com/lexnederbragt/INF-BIO9120_fall2013_de_novo_assembly/)
+* many other files, see the manual.
