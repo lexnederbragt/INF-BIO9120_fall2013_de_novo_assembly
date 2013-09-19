@@ -33,7 +33,7 @@ quast.py -T 2 \
 -l "Assembly 1, Assembly 2"
 ```
 
-An additional advantage of adding the `--gene-finding` flag is that Quast will provide a `gff` file with the predicted genes. This file can be added to your genome browser session as aseparate track.
+An additional advantage of adding the `--gene-finding` flag is that Quast will provide a `gff` file with the predicted genes. This file can be added to your genome browser session as a separate track, feel free to try this out.
 
 ####Using Quast *with* the reference genome
 
@@ -46,3 +46,6 @@ quast.py -T 2 \
 ../path/to/scaffolds2.fasta \
 -l "Assembly 1, Assembly 2"
 ```
+
+###Next steps
+Next, you can try different assembly programs, such as SPADES and Celera assembler. Perform (at least) one assembly per program, and for the 'best' assembly, perform mapping with BWA, SNP and Indel calling, and Quast. Ask the teacher for instructions.

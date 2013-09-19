@@ -345,3 +345,6 @@ velvetg <asm_name4> -cov_cutoff auto \
 * How does this assembly compare to the previous ones?
 
 Make a copy of the contigs file and call it `velvet_mp_only`
+
+###Next steps
+Next, map the reads used for the assemblies back to the scaffolds. See the tutorial 'Mapping_reads_to_an_assembly'

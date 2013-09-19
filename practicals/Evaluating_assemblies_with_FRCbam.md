@@ -6,7 +6,7 @@ From the paper:
 
 > […] based on the principle that the assembly precision can be predicted by identifying on each contig a set of suspicious regions (i.e., *features*): contigs are then sorted from the longest to the shortest, and for each feature threshold t only the longest contigs whose total sum of features is less than t are used to compute the genome coverage
 
-These calcualtions are then used to provide 
+These calculations are then used to provide 
 
 >a new metric, Feature Response Curve (FRCurve), capable of capturing the trade-off between contigs’ contiguity and correctness.
 
@@ -37,6 +37,7 @@ FRC --pe-sam <path/to/asm_folder>/bwa/map_mp.sorted.bam
 ```
 
 * Inspect the output, pay attention to the filenames
+* Note that there is a file called `…Features.gff` that can be added to the browser, feel free to try this out.
 
 **NOTE**
 
@@ -56,4 +57,3 @@ ipython notebook --pylab inline
 
 NOTE:
 The different types of feautures are explained on page 8 of the supplementary information of this article: [http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0052210](http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0052210)
-
