@@ -17,7 +17,7 @@ Other parameters:
 
 ####Paired end reads only
 
-First, create a new folder called `/home/<your_username>/assembly/spades` and `cd` into it.
+First, create a new folder called `/home/<your_username>/assembly/spades` and `cd` into it.  
 We will save the output from the command using `>spades.out` in a file to be able to follow progress. `2>&1` makes sure any error-messages are written to the same file.
 Run the assembly as follows:
 
@@ -59,7 +59,7 @@ Error-corrected read files are compressed, but SPADES will accept them as such (
 Changes to the command line when using error-corrected reads:
 
 * point to the error-corrected read files instead of the raw read files
-* add the `--only-assembler`flag to skip correction
+* add the `--only-assembler` flag to skip correction
 
 
 ####Things to try
