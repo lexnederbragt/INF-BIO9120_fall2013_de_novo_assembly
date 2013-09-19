@@ -305,9 +305,11 @@ velveth <asm_name3> value_of_k \
 We use auto values for velvetg because the addition of new reads will change the genome coverage. Also, Mate-pair data can contain significant paired-end contamination which generates misassemblies. To account for this, let Velvet know about the problem with the `shortMatePaired2` flag. The assembly command then becomes:
 
 ```
-velvetg <asm_name3> -cov_cutoff auto \  
--exp_cov auto -shortMatePaired2 yes
+velvetg <asm_name3> -cov_cutoff auto -exp_cov auto
 ```
+
+**TIP**
+Some mate pair libraries have a significant amount of paired end reads present as a by-effect of the library preparation. In that case, add the `-shortMatePaired2 yes` flag
 
 **Questions:**
 
@@ -333,8 +335,7 @@ velveth <asm_name4> <value_of_k> \
 /data/assembly/Nextera_MP_R1_50x.fastq \  
 /data/assembly/Nextera_MP_R2_50x.fastq  
 
-velvetg <asm_name4> -cov_cutoff auto \  
--exp_cov auto -shortMatePaired2 yes
+velvetg <asm_name4> -cov_cutoff auto -exp_cov auto
 ```
 
 **Questions:**
