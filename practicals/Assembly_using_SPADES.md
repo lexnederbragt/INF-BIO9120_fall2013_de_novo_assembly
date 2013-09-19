@@ -38,7 +38,9 @@ spades.py -t 2 -k 21,33,55,77 --careful \
 --mp1-fr -o <asm_name> >spades.out 2>&1
 ```
 
-If the assembly is running in a 'screen', you can follow the output by checking the `spades.out` file. **TIP**: use this command to track the outout as it is added to the file. Use ctrl-c to cancel.
+If the assembly is running in a 'screen', you can follow the output by checking the `spades.out` file.  
+
+**TIP**: use this command to track the output as it is added to the file. Use ctrl-c to cancel.
 
 ```
 tail -f spades.out
