@@ -32,7 +32,7 @@ FRC --pe-sam <path/to/asm_folder>/bwa/map_mp.sorted.bam
 --mp-sam <path/to/asm_folder>/bwa/map_mp.sorted.bam \
 --mp-min-insert 1650 --mp-max-insert 5000 \
 --CEstats-PE-min -2 --CEstats-PE-max 3 \
---CEstats-MP-min -4 --CEstats-MP-max 4 \
+--CEstats-MP-min -5 --CEstats-MP-max 5 \
 --genome-size 4630000 --output <asm_name>
 ```
 
