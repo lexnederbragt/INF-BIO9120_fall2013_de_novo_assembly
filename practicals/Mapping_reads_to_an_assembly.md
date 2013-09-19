@@ -103,10 +103,10 @@ Adding tracks to the browser is as simple as uploading a new file:
 * Is coverage even? Are there gaps in the coverage, or peaks? Where?
 
 ####Adding the locations of gaps as another track
-It would be convenient to be able to see the location of gaps in the browser. For this purpose run the following command (e.g., in the folder with the `bwa` results):
+It would be convenient to be able to see the location of gaps in the browser. For this purpose run the following command (e.g., in the folder with the `bwa` results). we will use 10 bases as minimum gap length: `-m 10`
 
 ```
-scaff2bed.py -i pe+mp_81_auto.fa >gaps.bed
+scaff2bed.py -i ../<assembly.fasta> -m 10 >gaps.bed
 ```
 
 This will create a BED file with locations of the gaps. Add the BED file to the browser. Zoom in one gaps and look at the alignments.
