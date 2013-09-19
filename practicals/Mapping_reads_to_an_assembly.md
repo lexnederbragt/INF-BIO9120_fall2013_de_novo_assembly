@@ -84,7 +84,7 @@ ipython notebook --pylab inline
 For this part, we will use IGV again. 
 Instead of using one of the build-in genomes, we will add the assembly as a new reference genome:
 
-* Start the IGV program FIXME: how?
+* Start the IGV program by typing `igv.sh`
 * Choose `Genomes --> Load Genome from File…` (**NB** not File --> Load from File…)
 * Select the fasta file with your assembly (**NB** the same file as you used for mapping the reads against!)
 
