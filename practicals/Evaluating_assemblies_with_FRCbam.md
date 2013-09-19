@@ -30,9 +30,9 @@ For each assembly you want to include:
 FRC --pe-sam <path/to/asm_folder>/bwa/map_mp.sorted.bam
 --pe-min-insert 250 --pe-max-insert 350 \
 --mp-sam <path/to/asm_folder>/bwa/map_mp.sorted.bam \
---mp-min-insert 2400 --mp-max-insert 3200 \
---CEstats-PE-min -2 --CEstats-PE-max 2 \
---CEstats-MP-min -4 --CEstats-MP-max 1 \
+--mp-min-insert 1650 --mp-max-insert 5000 \
+--CEstats-PE-min -2 --CEstats-PE-max 3 \
+--CEstats-MP-min -4 --CEstats-MP-max 4 \
 --genome-size 4630000 --output <asm_name>
 ```
 
