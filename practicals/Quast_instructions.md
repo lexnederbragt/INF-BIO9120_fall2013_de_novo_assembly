@@ -22,8 +22,9 @@ See the manual for information on the output of Quast:
 ####Using Quast *without* a reference genome
 
 ```
-quast.py -t 2 \
---scaffolds \
+quast.py -T 2 \
+--est-ref-size 4640000 \
+--gene-finding \
 -o out_folder_name \
 ../path/to/scaffolds1.fasta \
 ../path/to/scaffolds2.fasta \
@@ -33,8 +34,7 @@ quast.py -t 2 \
 ####Using Quast *with* a reference genome
 
 ```
-quast.py -t 2 \
---scaffolds \
+quast.py -T 2 \
 -o out_folder_name \
 -R /data/assembly/ref/NC_000913_K12_MG1655.fasta \
 -G /data/assembly/ref/e.coli_genes.gff \
