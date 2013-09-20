@@ -78,6 +78,12 @@ ipython notebook --pylab inline
 * Click on the notebook name, it will open in a new tab
 * Execute the cells as listed.
 * For `infile`, use the name of the sorted BAM file for the mapping of the paired end or mate pair reads
+* Generate plots for both the paired end mapping *and* the mate pair mapping
+
+**Questions**
+
+* Which insert size distribution is the tightest around the mean?
+* Why isn't the mean of the distribution a useful number for the mate pair library?
 
 
 ####Visualising the assembly in a genome browser
