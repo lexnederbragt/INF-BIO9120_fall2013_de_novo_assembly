@@ -29,7 +29,7 @@ cd bwa
 Then do the mapping:
 
 ```
-bwa-0.7.5a mem -t 2 ../<assembly.fasta> \
+bwa-0.7.5a mem -M -t 2 ../<assembly.fasta> \
 /data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq \
 /data/assembly/MiSeq_Ecoli_MG1655_50x_R2.fastq \
 | samtools view -buS - | samtools sort - map_pe.sorted
@@ -45,6 +45,7 @@ Explanation of some of the parameters:
 
 * `../` means 'look in the folder one level up', i.e. where the fasta file is
 * `-t 2`tells `bwa-0.7.5a mem` to use 2 threads (cpus)
+* `-M` indicates to 'mark shorter split hits as secondary (for Picard/GATK compatibility)', this we need later on
 * `-buS`tells `samtools view` that the input is in SAM format (`S`) and to output uncompressed (`u`) BAM format (`b`).
 * the `-` for both `samtools` commands indicate that instead of using a file as input, the input comes from a pipe (technically, from 'standard in', or 'STDIN').
 * `-map_pe.sorted` tells `samtools view` to call the outputfile `map_pe.sorted.bam`
