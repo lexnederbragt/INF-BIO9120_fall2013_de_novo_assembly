@@ -47,5 +47,3 @@ quast.py -T 2 \
 -l "Assembly 1, Assembly 2"
 ```
 
-###Next steps
-Next, you can try different assembly programs, such as SPADES and Celera assembler. Perform (at least) one assembly per program, and for the 'best' assembly, perform mapping with BWA, SNP and Indel calling, and Quast. Ask the teacher for instructions.
