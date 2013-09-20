@@ -20,8 +20,11 @@ See the manual for information on the output of Quast:
 
 **NOTE** Quast will produce a html report file `report.html` that you can open in your browser.
 
+####Choosing a folder
+Make a folder called `/home/<your_username>/assembly/quast/` and move into it.
+
 ####Using Quast *without* a reference genome
-Note that the `--scaffold` option is not used here for simplification
+Note that the `--scaffold` option is not used here for simplification. Also, make sure you name the assemblies (`-l`) in the same order as you give them to quast!
 
 ```
 quast.py -T 2 \
@@ -36,6 +39,7 @@ quast.py -T 2 \
 An additional advantage of adding the `--gene-finding` flag is that Quast will provide a `gff` file with the predicted genes. This file can be added to your genome browser session as a separate track, feel free to try this out.
 
 ####Using Quast *with* the reference genome
+Please wait with this part, as this is in a way 'cheating'...
 
 ```
 quast.py -T 2 \
