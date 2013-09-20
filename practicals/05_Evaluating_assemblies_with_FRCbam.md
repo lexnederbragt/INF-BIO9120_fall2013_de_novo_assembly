@@ -18,7 +18,9 @@ The input for FRCBam is the bam files from the mapping of the reads. If you have
 
 FRCBam calls feautures based on the observed distances between paired reads (and mates), and local read coverage. It will report for example regions where paired end distances are too short, or too long, or regions with very low of high coverage.
 
-First, `cd` to `/home<your_username>/assembly` and create a new folder called `FRCplots`, move into that folder.
+####Running FRC
+
+First, create a folder called `/home<your_username>/assembly/FRC/` and move into that folder.
 
 For each assembly you want to include:
 * Check that there are BAM files of paired end and mate pairs mapped to the assembly (probably in a folder called `bwa`)
@@ -33,7 +35,7 @@ FRC --pe-sam <path/to/asm_folder>/bwa/map_mp.sorted.bam
 --mp-min-insert 1650 --mp-max-insert 5000 \
 --CEstats-PE-min -2 --CEstats-PE-max 3 \
 --CEstats-MP-min -5 --CEstats-MP-max 5 \
---genome-size 4630000 --output <asm_name>
+--genome-size 4630000 --output <asm_name> ><asm_name_FRC.out>
 ```
 
 * Inspect the output, pay attention to the filenames
@@ -48,8 +50,8 @@ The output of the `FRC` command is a set of files whose name all start with wat 
 
 ####Plotting the FRC results
 
-* while still in `home<your_username>/assembly/FRCplots`, copy the IPython notebook called `FRC_plotting.ipynb` from `/doc/assembly/practicals/` into the FRCplot
-* start the IPython notebook browser, open the notebook and follow the instrcutions to plot the FRcurves:
+* While still in `home<your_username>/assembly/FRCplots`, copy the IPython notebook called `FRC_plotting.ipynb` from `/doc/assembly/practicals/` into the FRCplot
+* Start the IPython notebook browser, open the notebook and follow the instructions to plot the FRcurves:
 
 ```
 ipython notebook --pylab inline
