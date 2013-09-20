@@ -319,7 +319,6 @@ Some mate pair libraries have a significant amount of paired end reads present a
 * What did velvet estimate for the insert length of the paired-end reads, and for the standard deviation? Use the last mention of this in the velvet output.
 * And for the mate-pair library?
 
-
 Make a copy of the contigs file and call it `velvet_pe+mp.fa`
 
 ####Optional: Skipping the paired end reads

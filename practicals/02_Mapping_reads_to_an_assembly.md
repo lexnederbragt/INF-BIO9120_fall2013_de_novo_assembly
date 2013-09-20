@@ -49,7 +49,7 @@ Explanation of some of the parameters:
 * the `-` for both `samtools` commands indicate that instead of using a file as input, the input comes from a pipe (technically, from 'standard in', or 'STDIN').
 * `-map_pe.sorted` tells `samtools view` to call the outputfile `map_pe.sorted.bam`
 
-If you would like to have a look at the alignments in the BAM file (which is in binary format), use `samtools view`again:
+If you would like to have a look at the alignments in the BAM file (which is in binary format), use `samtools view`again (if you want, add the `-X` option):
 
 ```
 samtools view map_pe.sorted.bam |less
