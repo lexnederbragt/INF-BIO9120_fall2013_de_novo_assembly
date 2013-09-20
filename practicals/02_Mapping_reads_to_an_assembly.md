@@ -178,12 +178,16 @@ CreateSequenceDictionary R=<assembly.fasta> O=<assembly.dict>
   
 **Step 3:** Visualisation
 
-The pipeline yield two files: `snps_PE.vcf` and `indels.vcf`. Add these to the browser. Have a look at some of the indels and the alignments around them and see whether you agree that there is a SNP or Indel there.
+The pipeline yield two files: `snps_PE.vcf` and `indels.vcf`. Add these to the browser. Have a look at some of the indels and the alignments around them and see whether you agree that there is a SNP or Indel there. Mark interesting regions as 'Region of interest' through the `Regions` menu option.
 
 **Question:**
 
 * How many SNPs were there, and how many Indels?
 * How can there be SNPs and Indels when we mapped the reads to the assembly built with the *same* reads?
+
+####Saving the IGV session
+We will get back to this assembly browser, so save your session: `File --> Save Session…`
+
 
 ####Advanced exercise
 We will be mapping reads, calling SNPs and Indels more often. Perhaps you can turn the command used in this tutorial into a shell script, which can be run on any input fasta (assembly) file?
