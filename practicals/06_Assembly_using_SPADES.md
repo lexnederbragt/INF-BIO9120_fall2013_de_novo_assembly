@@ -69,3 +69,6 @@ Changes to the command line when using error-corrected reads:
 * Which assembler is 'best' for this data - or can't you tell?
 
 **Bonus exercise**: map the *error-corrected* paired end reads to the same assembly as the uncorrected reads, and check the results in the genome browser.
+
+###Next steps
+As for the previous assemblies, you could map reads back to the assembly, calls SNPs and Indels, run FRC and Quast, and visualise in the browser.
