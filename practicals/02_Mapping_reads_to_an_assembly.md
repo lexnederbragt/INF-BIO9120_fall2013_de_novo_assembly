@@ -122,7 +122,11 @@ It would be convenient to be able to see the location of gaps in the browser. Fo
 scaff2bed.py -i ../<assembly.fasta> -m 10 >gaps.bed
 ```
 
-This will create a BED file with locations of the gaps. Add the BED file to the browser. Zoom in one gaps and look at the alignments.
+This will create a BED file with locations of the gaps. 
+
+* Inspect the BED file
+* Add the BED file to the browser
+* Zoom in one gaps and look at the alignments.
 
 **Question:**
 
