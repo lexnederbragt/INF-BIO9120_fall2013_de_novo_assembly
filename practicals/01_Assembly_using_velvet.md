@@ -290,10 +290,10 @@ Long-range "mate-pair" libraries can also dramatically improve an assembly by sc
 
 **!!! IMPORTANT Pick a new name for your assembly !!!**
 
-We will use `-shortPaired` for the paired end library reads as before, and add `-shortPaired2` for the mate pairs:
+We will use `-shortPaired` for the paired end library reads as before, and add `-shortPaired2` for the mate pairs. Also, to make sure we all end up having the same assembly, the kmer size is given:
 
 ```
-velveth <asm_name3> value_of_k \  
+velveth <asm_name3> 71 \  
 -shortPaired -separate -fastq \  
 /data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq \  
 /data/assembly/MiSeq_Ecoli_MG1655_50x_R2.fastq \  
@@ -302,14 +302,14 @@ velveth <asm_name3> value_of_k \
 /data/assembly/Nextera_MP_R2_50x.fastq  
 ```
 
-We use auto values for velvetg because the addition of new reads will change the genome coverage. Also, Mate-pair data can contain significant paired-end contamination which generates misassemblies. To account for this, let Velvet know about the problem with the `shortMatePaired2` flag. The assembly command then becomes:
+We use auto values for velvetg because the addition of new reads will change the genome coverage. The assembly command then becomes:
 
 ```
 velvetg <asm_name3> -cov_cutoff auto -exp_cov auto
 ```
 
 **TIP**
-Some mate pair libraries have a significant amount of paired end reads present as a by-effect of the library preparation. In that case, add the `-shortMatePaired2 yes` flag
+Some mate pair libraries have a significant amount of paired end reads present as a by-effect of the library preparation. This may generate misassemblies. if this is the case for your data, add the `-shortMatePaired2 yes` to let Velvet know it.
 
 **Questions:**
 
@@ -322,15 +322,15 @@ Some mate pair libraries have a significant amount of paired end reads present a
 
 Make a copy of the contigs file and call it `velvet_pe+mp.fa`
 
-####Skipping the paired end reads
+####Optional: Skipping the paired end reads
 As both the mate pairs and the paired end *reads* are of the same length, and provide the same coverage, it could be intersting to try an assembly of the mate pair reads only. The read sequences would still be used to build the contigs, and the mate pair information to build scaffolds.
 
 **!!! IMPORTANT Pick a new name for your assembly !!!**
 
-The last assembly for this part then becomes:
+The assembly for this part then becomes:
 
 ```
-velveth <asm_name4> <value_of_k> \  
+velveth <asm_name4> 71 \  
 -shortPaired -separate -fastq \  
 /data/assembly/Nextera_MP_R1_50x.fastq \  
 /data/assembly/Nextera_MP_R2_50x.fastq  
