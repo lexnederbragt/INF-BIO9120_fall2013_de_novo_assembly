@@ -39,3 +39,4 @@ It can be also found in the file called `454NewblerProgress.txt` after the assem
 
 ###Next steps
 As for the previous assemblies, you could map reads back to the assembly, calls SNPs and Indels, run FRC and Quast, and visualise in the browser.
+**NOTE:** Some tools do not accept the `.fna` file extension. Solution: make a copy of the file and call it, for example, `newbler_pe+mp.fa`
