@@ -27,7 +27,7 @@ First, create a new folder called `/home/<your_username>/assembly/spades` and `c
 We will save the output from the command using `>spades.out` in a file to be able to follow progress. `2>&1` makes sure any error-messages are written to the same file.
 Run the assembly as follows:
 
-**NOTE** the assembly will take many hours, so use the `screen` command! See [https://wiki.uio.no/projects/clsi/index.php/Tip:using_screen](https://wiki.uio.no/projects/clsi/index.php/Tip:using_screen)
+**NOTE** the assembly will take around two hours, so use the `screen` command! See [https://wiki.uio.no/projects/clsi/index.php/Tip:using_screen](https://wiki.uio.no/projects/clsi/index.php/Tip:using_screen)
 
 ```
 spades.py -t 2 -k 21,33,55,77 --careful \
