@@ -108,6 +108,13 @@ Adding tracks to the browser is as simple as uploading a new file:
 * Do you see differences between some of the reads relative to the reference? What are these?
 * Is coverage even? Are there gaps in the coverage, or peaks? Where?
 
+When you are done with the IPython notebook:
+
+* Save the notebook
+* Close the browser windows
+* In the terminal, click ctrl-c and cofirm.
+* Check that you have one or more PDFs with the plotting results
+
 ####Adding the locations of gaps as another track
 It would be convenient to be able to see the location of gaps in the browser. For this purpose run the following command (e.g., in the folder with the `bwa` results). we will use 10 bases as minimum gap length: `-m 10`
 
