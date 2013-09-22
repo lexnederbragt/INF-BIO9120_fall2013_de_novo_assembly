@@ -14,19 +14,18 @@ This tutorial involves two assemblies, one using the same Illumina data as for V
 Celera uses its own data format for input reads, which often only contains a pointer to an input file, and some metadata. The `fastqToCA` command will produce the right input:
 
 * `-insertsize` gives the average insert length for the library, as well as the expected standard deviation of that average
-*  `-type sanger` tells Celera that 'quality values are PHRED, offset=33'
 *  the other parameters are self-explanatory
 
 To prepare the Illumina paired end and mate pair reads, the commands are:
 
 ```
 fastqToCA -insertsize 300 30 \
--libraryname ecoli_frag -technology illumina -type sanger \
+-libraryname ecoli_frag -technology illumina \
 -mates /data/assembly/MiSeq_Ecoli_MG1655_50x_R1.fastq,/data/assembly/MiSeq_Ecoli_MG1655_50x_R2.fastq \
 > ecoli_frag.frg
 
 fastqToCA -insertsize 3000 600 -libraryname ecoli_jump \
--technology illumina -type sanger\
+-technology illumina \
 -mates /data/assembly/Nextera_MP_R1_50x.fastq,/data/assembly/Nextera_MP_R2_50x.fastq \
 >ecoli_jump.frg
 ```
