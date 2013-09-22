@@ -35,10 +35,11 @@ FRC --pe-sam <path/to/asm_folder>/bwa/map_pe.sorted.bam
 --mp-min-insert 1650 --mp-max-insert 5000 \
 --CEstats-PE-min -2 --CEstats-PE-max 3 \
 --CEstats-MP-min -5 --CEstats-MP-max 5 \
---genome-size 4630000 --output <asm_name> ><asm_name_FRC.out>
+--genome-size 4630000 --output <asm_name> > <asm_name_FRC.out>
 ```
 
 * Inspect the output, pay attention to the filenames
+* make a note of the total number of feautures
 * Note that there is a file called `…Features.gff` that can be added to the browser, feel free to try this out.
 
 **NOTE**
