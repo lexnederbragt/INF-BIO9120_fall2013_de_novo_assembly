@@ -2,15 +2,6 @@
 
 ###*De novo* assembly of Illumina reads using velvet
 
-Learning points
-
-* understand k-mers
-* understand how to run Velvet
-* understand the concept of k-mer coverage
-* understand the effect of k-mer settings on assemblies
-* understand how to use paired-end and mate pair information in Velvet
-* understand the significance of some of the settings for Velvet 
-
 ####Assembling short-reads with Velvet
 
 We will use Velvet to assemble Illumina reads on their own. Velvet uses the *de Bruijn graph* approach. 
