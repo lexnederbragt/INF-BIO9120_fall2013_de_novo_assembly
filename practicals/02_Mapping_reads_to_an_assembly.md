@@ -174,6 +174,7 @@ CreateSequenceDictionary R=<assembly.fasta> O=<assembly.dict>
   * All `picard` commands should have the parameter `VALIDATION_STRINGENCY=SILENT` (**not** 'STRICT')
   * `picard ValidateSamFile.jar` will fail with too many warnings, these can be ignored
   * All `gatk` commands should have the parameter `--validation_strictness SILENT` (**not** 'STRICT')
+  * For `gatk UnifiedGenotyper`, skip the `-L` option (!)
   
 **Step 3:** Visualisation
 
