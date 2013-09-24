@@ -154,7 +154,7 @@ samtools faidx <assembly.fasta>
 * This creates a `<assembly.fai>` index files
 * Prepare the dictionary file with this command, where
   * `-R` (reference) is given the fasta file of the assembly
-  * `-O` (a capital 'O', not a zero) should be the same filename, ending in `.dict`
+  * `-O` (a capital 'O', not a zero) should be the same filename, ending in `.dict` (REMOVE the `.fasta`!)
 
 ```
 CreateSequenceDictionary R=<assembly.fasta> O=<assembly.dict>
