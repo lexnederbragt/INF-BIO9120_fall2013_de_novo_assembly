@@ -137,8 +137,6 @@ The *peak value* in this histogram can be used as a guide to the best k-mer valu
 
 **Questions:**
 
-* What k-mer frequency is the most frequent?
-* Why?
 * What do you think is the approximate expected k-mer coverage for your assembly?
 * Convert this value from k-mer coverage into genome coverage (average number of times the genome was sequenced).
 
