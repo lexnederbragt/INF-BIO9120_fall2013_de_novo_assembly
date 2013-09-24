@@ -7,7 +7,6 @@ We will use `bwa` for mapping. this is the same program you used for the variant
 Your new assembly now becomes the 'reference' for `bwa`. `bwa` needs an index of the sequences to make mapping go faster. For large genomes such as the human genome, this takes a long time (which is why you were given a indexed reference for the variant calling module). For the small bacterial genome we work with here this is very fast.
 
 Move (using `cd`) to the folder with your final assembled sequenced, e.g. `contigs.fa` for velvet, or `scaffolds.fasta` for SPADES.  
-**TIP:** Some of the programs we use have the final fasta file buried deep into subfolders. You could make a copy of the assembly file to a smart location, this will help later on. For example, use `/home/<your_username>/assembly/finished`.
 
 Index the fasta file with:
 
