@@ -68,7 +68,7 @@ Since we know know where the pairs of reads map, we can obtaint he distance betw
 
 We will use python, and the python modules `pysam` and `matplotlib` to plot the distribution of insert sizes for a subset of the alignments. All this we will do in an IPython notebook, and interactive python web-based document with live coding and plotting of results. Don't worry, I'll *demonstrate the use of this notebook* before you try it all yourself.
 
-* Copy the notbook file `/doc/assembly/practicals/Plot_insertsizes.ipynb` to the folder with the BAM files
+* Copy the notebook file `/doc/assembly/practicals/Plot_insertsizes.ipynb` to the folder with the BAM files
 * In the terminal, `cd` to the same folder
 * In the terminal, write 
 
@@ -76,7 +76,7 @@ We will use python, and the python modules `pysam` and `matplotlib` to plot the 
 ipython notebook --pylab inline
 ```
 
-* After a little bit, your webbrowser will start with a new tab labelled `IPython dashboard`, and the notbook `Plot_insertsizes` listed
+* After a little bit, your webbrowser will start with a new tab labelled `IPython dashboard`, and the notebook `Plot_insertsizes` listed
 * Click on the notebook name, it will open in a new tab
 * Execute the cells as listed.
 * For `infile`, use the name of the sorted BAM file for the mapping of the paired end or mate pair reads
