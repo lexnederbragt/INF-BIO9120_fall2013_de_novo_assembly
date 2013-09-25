@@ -45,7 +45,7 @@ FRC --pe-sam <path/to/asm_folder>/bwa/map_pe.sorted.bam \
 **NOTE**
 
 * The minimum and maximum insert sizes result from a few tries I did in preparation for the course. They are really library dependent. See also the results of the plotting of the insert size distributions
-* The CEstats limits result from an exchange with the author of the program who was so kind as to advise me on which setteings were best for these libraries. 'CE stats' are related to the compression/expansion features (too wide or too narrow distribution of insert sizes)
+* The CEstats limits result from an exchange with the author of the program who was so kind as to advise me on which settings were best for these libraries. 'CE stats' are related to the compression/expansion features (too wide or too narrow distribution of insert sizes)
  
 The output of the `FRC` command is a set of files whose name all start with wat you entered for `--output`
 
