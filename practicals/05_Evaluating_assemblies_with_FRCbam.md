@@ -51,7 +51,7 @@ The output of the `FRC` command is a set of files whose name all start with wat 
 
 ####Plotting the FRC results
 
-* While still in `home<your_username>/assembly/FRCplots`, copy the IPython notebook called `FRC_plotting.ipynb` from `/doc/assembly/practicals/` into the FRCplot
+* While still in `home<your_username>/assembly/FRC`, copy the IPython notebook called `FRC_plotting.ipynb` from `/doc/assembly/practicals/` into the FRCplot
 * Start the IPython notebook browser, open the notebook and follow the instructions to plot the FRcurves:
 
 ```
