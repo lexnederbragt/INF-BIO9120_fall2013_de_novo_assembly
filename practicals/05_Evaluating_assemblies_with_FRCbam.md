@@ -29,7 +29,7 @@ For each assembly you want to include:
 * run FRCBam as follows:
 
 ```
-FRC --pe-sam <path/to/asm_folder>/bwa/map_pe.sorted.bam
+FRC --pe-sam <path/to/asm_folder>/bwa/map_pe.sorted.bam \
 --pe-min-insert 250 --pe-max-insert 350 \
 --mp-sam <path/to/asm_folder>/bwa/map_mp.sorted.bam \
 --mp-min-insert 1650 --mp-max-insert 5000 \
